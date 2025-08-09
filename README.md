@@ -138,7 +138,7 @@ If you find bugs or have issues, please open a report in the GitHub Issues secti
 
 Tools for Accessing Files
 
-Android: ZArchiver or similar file manager apps. [Recommeded!](http://bit.ly/3UjREVo)
+Android: ZArchiver or similar file manager apps. [Recommeded!](https://sfile.mobi/bA40eZ1Lag7)
 
 Windows: File Explorer
 
