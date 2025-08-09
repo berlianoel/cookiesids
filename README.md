@@ -1,93 +1,149 @@
 # Please Read Before Using it
-This script is automates the process of logging into multiple user accounts using a list of credentials, and retrieves session data (cookies) for each.
+**Facebook Cookie Extractor**
 
-It is intended **strictly for testing purposes only**.  
+This script automates the process of logging into multiple user accounts using a list of credentials, and retrieves session data (cookies) for each account.
 
-## Dependencies 
+**Intended strictly for testing and educational purposes only.**
 
-Before running the script on **Termux**, install the required packages:
+## Features
+
+- Supports batch processing of multiple accounts
+- Automatic retries if failed
+- Skips accounts that have been previously processed to avoid duplicates
+- Automatically detects and saves cookies in the user’s **Download/CookiesExtractor/** folder, compatible with Android (Termux), Windows, Linux, and macOS
+- Includes animated loading spinners and colored terminal output for better user experience
+- Automatically delays 60 seconds after every 3 accounts to reduce checkpoint risk on Facebook
+- Clean and readable terminal interface with banner and instructions
+- Robust error handling with status messages: OK, checkpoint (CP), error
+- Cross-platform support with smart download folder detection
+- Easy to use with simple input format and clear instructions
+
+## Dependencies
+
+Before running the script on Termux (Android), install required packages:
 
 ```bash
 pkg update && pkg upgrade
 ```
 ```
-pkg install git
+pkg install git python
 ```
 ```
-pkg install python
+Then install required Python packages:
 ```
-
-## How to install
-Follow The instructions!
-
-## Clone the Repository
-
-```
-git clone https://github.com/berlianoel/Cookiesid
-```
-```
-cd Cookies
-```
-
-## Install Dependencies
-
 ```
 pip install -r requirements.txt
 ```
-# Run the script
+
+How to Install
+
+1. Clone the repository:
+
+
+```
+git clone https://github.com/berlianoel/cookiesids
+```
+```
+cd cookiesids
+```
+
+2. Install dependencies:
+```
+pip install -r requirements.txt
+```
+
+3. Run the script:
 ```
 python main.py
 ```
 
-# Format
-Save your UID and password in a file named idpw.txt using this format:
+## Usage Instructions
+
+Termux Android Users Only: Setup Storage Permissions
+
+To allow saving files to your device storage, run this once before using the script:
 ```
-uid1|pw1
-uid2|pw2
-uid3|pw3
+termux-setup-storage
+```
+Grant the requested storage permission in the popup.
 
-Example:
 
+**Input Format**
+
+You can enter accounts when prompted with the following format:
+```
+uid1|password1
+uid2|password2
+uid3|password3
+```
+**Example:**
+```
 600012325678901|mypassword123
 600098765432109|examplepass321
-
 ```
-## Where i can change idpw.txt?
-The **idpw.txt** file is in the directory home if you using **termux.**
-
-the **cookies.txt** will generate in there too
-
-to go there you can use this tools :
-
-mobile : http://bit.ly/3UjREVo
-
-windows : you should know
-
-linux : you should know 
+When entering manually, input one account per line. After entering all accounts, press Enter twice to start the process.
 
 
+## Output Location
+
+The script will save extracted cookies to:
+
+**<Download Folder>/CookiesExtractor/cookies.txt**
+
+On **Termux** Android, this usually maps to:
+
+/storage/emulated/0/Download/CookiesExtractor/cookies.txt
+
+On Windows:
+
+C:\Users\<YourUsername>\Downloads\CookiesExtractor\cookies.txt
+
+On Linux/macOS:
+
+/home/<YourUsername>/Downloads/CookiesExtractor/cookies.txt
+
+
+The script tries to detect the correct download folder automatically.
+
+## Important Notes
+
+Make sure to run ```termux-setup-storage``` and grant storage permission before using this script on Termux Android.
+
+The script will retry failed login attempts 3 times per account before skipping.
+
+There will be a 60-second delay after processing every 3 accounts to reduce risk of Facebook checkpoint.
+
+Duplicate accounts already processed (found in cookies.txt) will be skipped.
 
 ## Credits
-```
-author : berlin
-```
+
+Author: Berlin
+
+please keep the author credit.
+
+**The author is NOT responsible for any misuse or damages caused.**
 
 
-## ⚠️ WARNING
+## Warning
 
-This project is for educational and testing purposes only.
+This project is for **educational** and testing purposes only.
 
-Do not use it for illegal or unethical activities.
-
-**Feel free to modified, and please put my name credit there.**
-
-Selling or repackaging this script in any form is strictly prohibited.
-
-The author is not responsible for any misuse or damage caused.
+**Do NOT** use it for illegal or unethical activities.
 
 
+## Bug Reports & Issues
 
-## Section
+If you find bugs or have issues, please open a report in the GitHub Issues section of the repository.
 
-Found a bug or issue?
-Open a report in the GitHub Issues section.
+
+Tools for Accessing Files
+
+Android: ZArchiver or similar file manager apps. [Recommeded!](http://bit.ly/3UjREVo)
+
+Windows: File Explorer
+
+Linux/macOS: File Manager or Terminal
+
+
+**Thank you for using this script!**
+
